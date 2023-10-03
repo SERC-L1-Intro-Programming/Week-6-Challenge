@@ -34,7 +34,7 @@ jobs:
   build-activity-icons:
     name: Build Activity Icons
     runs-on: ubuntu-latest
-    if: always()
+    if: always() && ${{ !github.event.repository.is_template || github.event_name == 'workflow_dispatch' }}
     needs: grade
     steps:
       # need to checkout whole repo
